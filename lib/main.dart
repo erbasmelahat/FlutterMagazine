@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:magazine/pages/home.dart';
+
+// ignore: unused_import
 import 'package:magazine/pages/login.dart';
-// import 'package:magazine_app/pages/home.dart';
-// import 'package:magazine_app/pages/home.dart';
+
 
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   static const String title = 'Magazine';
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

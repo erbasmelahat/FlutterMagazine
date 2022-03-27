@@ -49,7 +49,8 @@ class Register extends StatelessWidget{
                    icon: Icon(Icons.person_outline),
                    hintText: 'Example: erbasmelahat',
                    labelText: 'Username'),
-                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; } },
+                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+  return null; },
                ),
                 const SizedBox(
                  height: 30,
@@ -59,7 +60,8 @@ class Register extends StatelessWidget{
                    icon: Icon(Icons.password_sharp),
                    hintText: 'Example: Erbas_123*',
                    labelText: 'Password'),
-                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; } },
+                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+  return null; },
                ),
                Align(
                  alignment: Alignment.centerRight,

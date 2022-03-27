@@ -56,7 +56,8 @@ class LoginPage extends StatelessWidget{
                    icon: Icon(Icons.person_outline),
                    hintText: 'Example: erbasmelahat',
                    labelText: 'Username'),
-                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; } },
+                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+  return null; },
                ),
                 const SizedBox(
                  height: 30,
@@ -66,7 +67,8 @@ class LoginPage extends StatelessWidget{
                    icon: Icon(Icons.password_sharp),
                    hintText: 'Example: Erbas_123*',
                    labelText: 'Password'),
-                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; } },
+                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+  return null; },
                ),
                Align(
                  alignment: Alignment.centerRight,
@@ -86,7 +88,7 @@ class LoginPage extends StatelessWidget{
                    side: const BorderSide(color: Colors.white),
                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 135,),
                  ),
-                 onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),));}
+                 onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomePage(),));}
                  , child: const Text("Sign In"))
                ,
                const SizedBox(
@@ -106,7 +108,7 @@ class LoginPage extends StatelessWidget{
                  children: [
                    const Text("Üye Olmak İstemiyor Musunuz?"),
                    TextButton(onPressed: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),));
+                     Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomePage(),));
                    }, child: const Text("Tıklayın")),
                  ],
                ),
