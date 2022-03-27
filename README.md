@@ -1,6 +1,6 @@
 # magazine
 
-A new Flutter project.
+Magazine App
 
 ## Getting Started
 
