@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 
@@ -8,15 +9,13 @@ class RealHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
-        
-         Container(
-           
+      children: <Widget>[        
+         Container(           
          margin: const EdgeInsets.only(top: 100),
-        alignment: Alignment.center,             
+          // alignment: Alignment.center,             
          padding: const EdgeInsets.symmetric(horizontal: 18),
-        height: 50,         
-        decoration: BoxDecoration(
+          height: 50,         
+          decoration: BoxDecoration(
            borderRadius: BorderRadius.circular(30),
            color: Colors.transparent,        
            ),
@@ -39,12 +38,91 @@ class RealHome extends StatelessWidget {
                   ),
                  ],
             ),
-         ),
-         Column(
-           children: const <Widget>[
-            
+          ),
+          Column(
+           children:const [            
+             SizedBox(               
+               height: 120,),],),
+               
+          Row(
+           children:[       
+             const SizedBox(
+               width: 40,),     
+             SizedBox(               
+               height: 250,
+               child: Container( 
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(255, 238, 236, 230), 
+                  border: const Border.symmetric() , ),                     
+                 width: 160,
+                 child: const Center(child: Text("Deneme"),),
+                  ),
+                 
+              ),
+               const SizedBox(
+               width: 20,),
+             SizedBox(
+               height: 250,
+               child: Container( 
+                 alignment: Alignment.topLeft,
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(255, 238, 236, 230)   ),                     
+                 width: 160,
+                 child: const Center(child: Text("Deneme"),), ),
+                 ), 
            ],
         ),
+
+         Column(
+           children:const [            
+             SizedBox(               
+               height: 20,),],),
+
+          Row(
+           children:[       
+             const SizedBox(
+               width: 40,), 
+             SizedBox(               
+               height: 250,
+               child: Container( 
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  ),                     
+                 width: 160,
+                 
+                 child: ElevatedButton(
+                   child: const Text(
+                      'Deneme',
+                      style: TextStyle(fontSize: 16, color: Colors.black),
+                    ),
+                   style: ElevatedButton.styleFrom(
+                     shadowColor: Colors.transparent,
+                    primary: const Color.fromARGB(255, 238, 236, 230)),
+                    onPressed: (){},
+                 )
+                  ),
+                 
+              ),
+               const SizedBox(
+               width: 20,),
+             SizedBox(
+               height: 250,
+               child: Container( 
+                 alignment: Alignment.topLeft,
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(255, 238, 236, 230)   ),                     
+                 width: 160,
+                 child: const Center(child: Text("Deneme"),), ),
+                 ), 
+           ],
+
+        ),
+
+
+
        ],
      );
       
