@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:magazine/pages/home.dart';
-
+import 'package:flutter/services.dart'; 
 // ignore: unused_import
 import 'package:magazine/pages/login.dart';
 

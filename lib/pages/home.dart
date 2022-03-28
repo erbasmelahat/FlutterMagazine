@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
         
       ),
       body: pages[pageIndex],
+      
       bottomNavigationBar: Container( 
       height: 54, 
       margin: const EdgeInsets.only(
