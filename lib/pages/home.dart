@@ -1,6 +1,9 @@
+// ignore: unnecessary_import
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:magazine/pages/profile.dart';
-import 'package:magazine/pages/realHome.dart';
+import 'package:magazine/pages/body.dart';
 
 import '../main.dart';
 
@@ -94,24 +97,76 @@ class _HomePageState extends State<HomePage> {
   ),                                                                         
    
      drawer: Drawer(
+       backgroundColor: Colors.black,
+        shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),),
         child: ListView(
-          padding: EdgeInsets.zero,
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.black12,
+             DrawerHeader(                                        
+              decoration: BoxDecoration( 
+                image: const DecorationImage(
+          image: AssetImage("assets/e.jpg"),
+          fit: BoxFit.contain,),
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.transparent,
+                 border: const Border(                   
+                    top: BorderSide(width: 1.0, color: Colors.white54),
+                    left: BorderSide(width: 1.0, color: Colors.white54),
+                    right: BorderSide(width: 1.0, color: Colors.white54),
+                    bottom: BorderSide(width: 1.0, color: Colors.white54,),
+                 ),                    
               ),
-              child: Text('Drawer Header'),
+              child: const Padding(
+                padding: EdgeInsets.only(
+                  top: 13,
+                  left: 80
+                ),
+                child: Text('Magazine',
+                
+                style: TextStyle(
+                  
+                  fontSize: 23,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black
+                ),
+                ),
+              ),
+              
             ),
             ListTile(
-              title: const Text('Item 1'),
+               shape: RoundedRectangleBorder(
+                  side: const BorderSide(color: Colors.white54, width: 0.5),
+                  borderRadius: BorderRadius.circular(20)),       
+              title: const Text('Recorded',              
+              style: TextStyle(                
+                  fontSize: 16,
+                  fontWeight: FontWeight.w200,
+                  color: Colors.white54,
+                ),
+                
+              ),
               onTap: () {
                 Navigator.pop(context);
                
               },
+              
+            ),
+            const SizedBox(
+              height: 5,
             ),
             ListTile(
-              title: const Text('Item 2'),
+              shape: RoundedRectangleBorder(
+                  side: const BorderSide(color: Colors.white54, width: 0.5),
+                  borderRadius: BorderRadius.circular(20)),      
+              title: const Text('Recently Read',
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w200,
+                  color: Colors.white54
+                ),),
               onLongPress: (){},
               onTap: () {
                 Navigator.pop(context);

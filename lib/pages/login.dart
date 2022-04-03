@@ -6,7 +6,7 @@ import 'home.dart';
 
 class LoginPage extends StatelessWidget{
   const LoginPage({ Key? key}) : super(key: key);
-  final urlImage = 'assets/book.jpg';
+  final urlImage = 'assets/f.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,9 @@ class LoginPage extends StatelessWidget{
          children: [
             Image.asset(
              urlImage,
-             width: 500,
+             width: 700,
              height: 290,
+             fit: BoxFit.cover,
             //  scale: 3,         
              alignment: Alignment.topCenter,             
            ),
@@ -35,12 +36,13 @@ class LoginPage extends StatelessWidget{
              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.3),
              width: double.infinity,
              height: 700,
-             decoration: const BoxDecoration(
-               color: Colors.white,
-               borderRadius: BorderRadius.only(topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+             decoration: BoxDecoration(
+               color: Colors.grey.shade200,
+               borderRadius: const BorderRadius.only(topRight: Radius.circular(30), topLeft: Radius.circular(30)),
 
              ),
              child: Column(
+               
                crossAxisAlignment: CrossAxisAlignment.start,
                children: [
                  Text("Sign In", style: TextStyle(
@@ -83,12 +85,16 @@ class LoginPage extends StatelessWidget{
                 ),
                ElevatedButton(
                  style: TextButton.styleFrom(
+                   shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(10),
+               ),
                    primary: Colors.black,
-                   backgroundColor: Colors.white,
-                   side: const BorderSide(color: Colors.white),
+                   backgroundColor: Colors.white70,
+                   side: const BorderSide(color: Colors.black45,
+                   ),
                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 135,),
                  ),
-                 onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomePage(),));}
+                 onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>  const HomePage(),));}
                  , child: const Text("Sign In"))
                ,
                const SizedBox(
@@ -100,7 +106,10 @@ class LoginPage extends StatelessWidget{
                    const Text("Don't have an account"),
                    TextButton(onPressed: (){
                      Navigator.push(context, MaterialPageRoute(builder: (context) => const Register(),));
-                   }, child: const Text("Sign Up")),
+                   }, child: const Text("Sign Up",
+                   style: TextStyle(
+                     color: Colors.black26,
+                   ),)),
                  ],
                ),
                Row(
@@ -108,8 +117,11 @@ class LoginPage extends StatelessWidget{
                  children: [
                    const Text("Üye Olmak İstemiyor Musunuz?"),
                    TextButton(onPressed: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context) =>  HomePage(),));
-                   }, child: const Text("Tıklayın")),
+                     Navigator.push(context, MaterialPageRoute(builder: (context) =>  const HomePage(),));
+                   }, child: const Text("Tıklayın",
+                   style: TextStyle(
+                     color: Colors.black26,
+                   ),)),
                  ],
                ),
               //  const SizedBox(
