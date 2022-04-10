@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; 
+import 'package:flutter/services.dart';
+// ignore: unused_import
+import 'package:magazine/pages/home.dart'; 
 // ignore: unused_import
 import 'package:magazine/pages/login.dart';
+import 'package:magazine/pages/membership.dart';
 
 
 
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black)
         ),
       ),
-      home: const LoginPage(),
+      home: const MemberShip(),
     );
   }
 }

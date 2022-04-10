@@ -18,6 +18,7 @@ class _RealHomeState extends State<RealHome> {
 
   @override
   Widget build(BuildContext context) {
+    
       // Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(

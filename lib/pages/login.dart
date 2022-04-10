@@ -1,138 +1,140 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:magazine/pages/signUp.dart';
-
-import 'home.dart';
-
+import 'package:magazine/pages/home.dart';
+// import 'home.dart';
 
 class LoginPage extends StatelessWidget{
-  const LoginPage({ Key? key}) : super(key: key);
-  final urlImage = 'assets/f.jpg';
+  const LoginPage({ Key? key, required this.loginTitle}) : super(key: key);
+
+  final String loginTitle;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-       backgroundColor: Colors.blue.shade50,
-       body: Stack(
-        //  alignment: Alignment.center,
-         children: [
-            Image.asset(
-             urlImage,
-             width: 700,
-             height: 290,
-             fit: BoxFit.cover,
-            //  scale: 3,         
-             alignment: Alignment.topCenter,             
-           ),
-           Padding(
-             padding: const EdgeInsets.only(top: 180, left: 30),
-             child: Text("Welcome \n Back", style: TextStyle(               
-               color: Colors.grey.shade800,
-               fontSize: 40,
-               fontWeight: FontWeight.w300,
-             ),),
-           ),
-           Container(
-             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-             margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.3),
-             width: double.infinity,
-             height: 700,
-             decoration: BoxDecoration(
-               color: Colors.grey.shade200,
-               borderRadius: const BorderRadius.only(topRight: Radius.circular(30), topLeft: Radius.circular(30)),
-
-             ),
-             child: Column(
-               
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-                 Text("Sign In", style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
+    return Stack(
+      children: [
+        TitlePages(loginTitle: loginTitle),
+         Column(            
+          crossAxisAlignment: CrossAxisAlignment.start,
+           children: [
+             const Padding(
+               padding: EdgeInsets.only(
+               top: 350,
                ),),
-               const SizedBox(
-                 height: 40,
-               ),
-               TextFormField(
-                 decoration: const InputDecoration(
-                   icon: Icon(Icons.person_outline),
-                   hintText: 'Example: erbasmelahat',
-                   labelText: 'Username'),
-                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
-  return null; },
-               ),
-                const SizedBox(
-                 height: 30,
-               ),
-               TextFormField(
-                 decoration: const InputDecoration(
-                   icon: Icon(Icons.password_sharp),
-                   hintText: 'Example: Erbas_123*',
-                   labelText: 'Password'),
-                   validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
-  return null; },
-               ),
-               Align(
-                 alignment: Alignment.centerRight,
-                 
-                 child: TextButton(onPressed: (){},child: const Text("Forget?"),
-                  style: TextButton.styleFrom(
-                   primary: Colors.black,), 
-                 ),
-               ),
-               const SizedBox(
-                 height: 30,
-                ),
-               ElevatedButton(
-                 style: TextButton.styleFrom(
-                   shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(10),
-               ),
-                   primary: Colors.black,
-                   backgroundColor: Colors.white70,
-                   side: const BorderSide(color: Colors.black45,
+             Center(
+               child: Padding(
+                 padding: const EdgeInsets.symmetric(vertical: 10),
+                 child: Container(
+                   width: 350,
+                   height: 50,
+                   decoration: BoxDecoration(
+                     color: Colors.grey[500]?.withOpacity(0.5),
+                     borderRadius: BorderRadius.circular(10),
                    ),
-                   padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 135,),
-                 ),
-                 onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>  const HomePage(),));}
-                 , child: const Text("Sign In"))
-               ,
-               const SizedBox(
-                 height: 30,
-                ),
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-                   const Text("Don't have an account"),
-                   TextButton(onPressed: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => const Register(),));
-                   }, child: const Text("Sign Up",
-                   style: TextStyle(
-                     color: Colors.black26,
-                   ),)),
-                 ],
-               ),
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-                   const Text("Üye Olmak İstemiyor Musunuz?"),
-                   TextButton(onPressed: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context) =>  const HomePage(),));
-                   }, child: const Text("Tıklayın",
-                   style: TextStyle(
-                     color: Colors.black26,
-                   ),)),
-                 ],
-               ),
-              //  const SizedBox(
-              //    height: 30,
-              //  ),
-              
-               ],),
-               
-           )
-         ],
-       ) ,                
+                   child: Center(
+                     child: TextFormField(
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      decoration: const InputDecoration(                            
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          child: Icon(
+                            Icons.abc
+                          ),
+                        ),
+                        border: InputBorder.none,                            
+                       //  hintText: 'Example: erbasmelahat',
+                        labelText: 'Username'),                     
+                        validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+                           return null; },
+                       ),                   ),
+                 ),              ),
+             ),
+            Center(
+              child: Padding(
+                 padding: const EdgeInsets.symmetric(vertical: 10),
+                 child: Container(
+                   height: 50,
+                   width: 350,
+                   decoration: BoxDecoration(
+                     color: Colors.grey[500]?.withOpacity(0.5),
+                     borderRadius: BorderRadius.circular(10),
+                   ),
+                   child: Center(
+                     child: TextFormField(
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.done,
+                      obscureText: true,
+                      decoration: const InputDecoration(                           
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          child: Icon(
+                            Icons.lock,
+                            size: 17,
+                          ),),
+                        border: InputBorder.none,
+                        labelText: 'Password'),                     
+                        validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+                           return null; },
+                       ),),
+                 ),),),
+             
+                Center(
+              child: Padding(
+                 padding: const EdgeInsets.symmetric(vertical: 10),
+                 child: Container(
+                   height: 50,
+                   width: 350,
+                   decoration: BoxDecoration(
+                     color: Colors.grey[500]?.withOpacity(0.5),
+                     borderRadius: BorderRadius.circular(10),
+                   ),
+                  
+                     child: TextButton(
+                      style: ButtonStyle(
+                        alignment: Alignment.centerLeft,
+                      foregroundColor: MaterialStateProperty.all<Color>(Colors.black54),
+                      ),
+                    onPressed: () {
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const HomePage()));
+                     },
+                     
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 40),
+                      child: Text('Login',
+                      ),
+                    ),
+                    ),
+                 ),),),
+             ], ),
+                         ],
+    );     
+  }
+}
+
+class TitlePages extends StatelessWidget {
+  const TitlePages({
+    Key? key,
+    required this.loginTitle
+  }) : super(key: key);
+
+  final String loginTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 170,
+        left: 120
+      ),
+      child: Text(
+        loginTitle,
+         style: const TextStyle(
+           color: Colors.black,
+           fontSize: 30,
+           fontWeight: FontWeight.normal,           
+         ),),
     );
   }
 }
+

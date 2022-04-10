@@ -13,6 +13,9 @@ class MagazineCardGroup extends StatelessWidget {
         children: [
           SizedBox(
             child: GridView.count(
+               padding: const EdgeInsets.only(
+                 top: 40
+               ),
              scrollDirection: Axis.vertical,
               physics: const NeverScrollableScrollPhysics(),
               crossAxisSpacing: 0,

@@ -34,11 +34,13 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
             ),
-        backgroundColor: Colors.transparent
+              backgroundColor: const Color.fromRGBO(206, 192, 163, 1),
+
         
       ),
       body: pages[pageIndex],
       
+      backgroundColor: const Color.fromRGBO(206, 192, 163, 1),
       bottomNavigationBar: Container( 
       height: 54, 
       margin: const EdgeInsets.only(
