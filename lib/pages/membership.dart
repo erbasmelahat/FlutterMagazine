@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:magazine/pages/login.dart';
 import 'package:magazine/pages/signUp.dart';
 
-import '../main.dart';
 
 class MemberShip extends StatefulWidget{
   const MemberShip({ Key? key}) : super(key: key);
