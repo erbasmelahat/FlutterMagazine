@@ -2,158 +2,179 @@
 
 
 // import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatelessWidget{
+// ignore: must_be_immutable
+class Register extends StatefulWidget{
 
   const Register({ Key? key, required this.signUpTitle}) : super(key: key);
 
   final String signUpTitle;
 
-  // void showAlertDialog(BuildContext context){
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String email = "";
+  String password= "";
+  late FirebaseAuth auth;
+  @override
+  void initState() {
+    super.initState();
+    auth = FirebaseAuth.instance;
     
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) =>
-  //        AlertDialog(content: Container(
-  //         width: MediaQuery.of(context).size.width / 4,
-  //         height: MediaQuery.of(context).size.height / 15,
-  //         color: Colors.transparent,
-  //       ))
-  //     );}
-  
+  }
+
+
 
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-         TitlePage1(signUpTitle: signUpTitle),    
-         Column(            
-          crossAxisAlignment: CrossAxisAlignment.start,
-           children: [
-             const Padding(
-               padding: EdgeInsets.only(
-               top: 280,
-               ),),
-             Center(
-               child: Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 10),
-                 child: Container(
-                   width: 350,
-                   height: 50,
-                   decoration: BoxDecoration(
-                     color: Colors.grey[500]?.withOpacity(0.5),
-                     borderRadius: BorderRadius.circular(10),
-                   ),
-                   child: Center(
-                     child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(                            
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5),
-                          child: Icon(
-                            Icons.abc
-                          ),
-                        ),
-                        border: InputBorder.none,                            
-                       //  hintText: 'Example: erbasmelahat',
-                        labelText: 'Username'),                     
-                        validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
-                           return null; },
-                       ),                   ),
-                 ),              ),
-             ),
-            Center(
-              child: Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 10),
-                 child: Container(
-                   height: 50,
-                   width: 350,
-                   decoration: BoxDecoration(
-                     color: Colors.grey[500]?.withOpacity(0.5),
-                     borderRadius: BorderRadius.circular(10),
-                   ),
-                   child: Center(
-                     child: TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(                           
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5),
-                          child: Icon(
-                            Icons.email,
-                            size: 17,
-                          ),),
-                        border: InputBorder.none,
-                        labelText: 'Email Address'),                     
-                        validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
-                           return null; },
-                       ),),
+    return Form(
+      key: _formKey,
+      child: Stack(
+        children: [
+           TitlePage1(signUpTitle: widget.signUpTitle),    
+           Column(            
+            crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               const Padding(
+                 padding: EdgeInsets.only(
+                 top: 280,
                  ),),
-            ),
-             Center(
-              child: Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 10),
-                 child: Container(
-                   height: 50,
-                   width: 350,
-                   decoration: BoxDecoration(
-                     color: Colors.grey[500]?.withOpacity(0.5),
-                     borderRadius: BorderRadius.circular(10),
-                   ),
-                   child: Center(
-                     child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      obscureText: true,
-                      textInputAction: TextInputAction.done,
-                      decoration: const InputDecoration(                           
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5),
-                          child: Icon(
-                            Icons.lock,
-                            size: 17,
-                          ),),
-                        border: InputBorder.none,
-                        labelText: 'Password'),                     
-                        validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
-                           return null; },
-                       ),),
-                 ),),
-            ),
-             Center(
-              child: Padding(
-                 padding: const EdgeInsets.symmetric(vertical: 10),
-                 child: Container(
-                   height: 50,
-                   width: 350,
-                   decoration: BoxDecoration(
-                     color: Colors.grey[500]?.withOpacity(0.5),
-                     borderRadius: BorderRadius.circular(10),
-                   ),
+              Center(
+                child: Padding(
+                   padding: const EdgeInsets.symmetric(vertical: 10),
+                   child: Container(
+                     height: 50,
+                     width: 350,
+                     decoration: BoxDecoration(
+                       color: Colors.grey[500]?.withOpacity(0.5),
+                       borderRadius: BorderRadius.circular(10),
+                     ),
+                     child: Center(
+                       child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                      
+                        decoration: const InputDecoration(                           
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            child: Icon(
+                              Icons.email,
+                              size: 17,
+                            ),),
+                          border: InputBorder.none,
+                          labelText: 'Email Address'),
+                            onChanged: (value){
+                              email = value.toString().trim();
                   
-                     child: TextButton(
-                      style: ButtonStyle(
-                        alignment: Alignment.centerLeft,
-                      foregroundColor: MaterialStateProperty.all<Color>(Colors.black54),
+                  },                     
+                          validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+                             return null; },
+                         ),),
+                   ),),
+              ),
+               Center(
+                child: Padding(
+                   padding: const EdgeInsets.symmetric(vertical: 10),
+                   child: Container(
+                     height: 50,
+                     width: 350,
+                     decoration: BoxDecoration(
+                       color: Colors.grey[500]?.withOpacity(0.5),
+                       borderRadius: BorderRadius.circular(10),
+                     ),
+                     child: Center(
+                       child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        obscureText: true,
+                        textInputAction: TextInputAction.done,
+                       
+                        decoration: const InputDecoration(                           
+                          prefixIcon: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            child: Icon(
+                              Icons.lock,
+                              size: 17,
+                            ),),
+                          border: InputBorder.none,
+                          labelText: 'Password'), 
+                            onChanged: (value){
+                              password = value.toString().trim();
+                           
+                  },                    
+                          validator: (value) {  if (value!.isEmpty) {  return 'Bu alanı boş bıraktınız!'; }
+                             return null; },
+                         ),),
+                   ),),
+              ),
+               Center(
+                child: Padding(
+                   padding: const EdgeInsets.symmetric(vertical: 10),
+                   child: Container(
+                     height: 50,
+                     width: 350,
+                     decoration: BoxDecoration(
+                       color: Colors.grey[500]?.withOpacity(0.5),
+                       borderRadius: BorderRadius.circular(10),
+                     ),
+                    
+                       child: TextButton(
+                        style: ButtonStyle(
+                          alignment: Alignment.centerLeft,
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.black54),
+                        ),
+                      onPressed: () async {   
+                        try{
+                          await auth.createUserWithEmailAndPassword(email: email, password: password);
+                           showDialog(
+                                      context: context,
+                                      builder: (ctx) => const AlertDialog(
+                                        title:
+                                            Text(' Sucessfully Register.You Can Login Now'),
+                          // ScaffoldMessenger.of(context).showSnackBar(
+                          //             const SnackBar(
+                          //                 content: Text('Sucessfully Register.You Can Login Now'),
+                          //                 // child: Text(
+                          //                 //     'Sucessfully Register.You Can Login Now'),
+                          //                  duration: Duration(seconds: 5),
+                          //               ),                                                                       
+                                    ),);
+                                    // Navigator.of(context).pop();
+                        }
+                        on FirebaseAuthException catch (e) {
+                                    showDialog(
+                                      context: context,
+                                      builder: (ctx) => AlertDialog(
+                                        title:
+                                            const Text(' Ops! Registration Failed'),
+                                        content: Text('${e.message}',
+                                        ),
+                                        ),);
+                        
+
+                                      }
+                      } ,
+                                      
+                                                                                            
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 40),
+                        child: Text('Sign Up',
+                        ),),
                       ),
-                    onPressed: () {   
-                      // showAlertDialog(context);
-                      },  
-                        // Navigator.push(context,
-                        // MaterialPageRoute(builder: (context) => const HomePage()));                                                                               
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 40),
-                      child: Text('Sign Up',
-                      ),),
-                    ),
-                 ),),),
-            ],
-    ),   
-      ],
+                   ),),),
+              ],
+      ),   
+        ],
+      ),
     ); 
   }
+  
 }
 
 class TitlePage1 extends StatelessWidget {

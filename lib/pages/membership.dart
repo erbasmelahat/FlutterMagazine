@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:magazine/pages/login.dart';
 import 'package:magazine/pages/signUp.dart';
+
+import 'login.dart';
 
 
 class MemberShip extends StatefulWidget{

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 // ignore: unused_import
 import 'package:magazine/pages/home.dart'; 
 // ignore: unused_import
-import 'package:magazine/pages/login.dart';
+import 'package:magazine/pages/login1.dart';
 import 'package:magazine/pages/membership.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
