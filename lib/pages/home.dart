@@ -2,8 +2,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+// import 'package:magazine/pages/login.dart';
+import 'package:magazine/pages/membership.dart';
 import 'package:magazine/pages/profile.dart';
 import 'package:magazine/pages/body.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../main.dart';
 
@@ -22,6 +25,14 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+     // ignore: unused_local_variable
+     String email= "";
+    // ignore: unused_local_variable
+    String password="";
+    final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+    _signOut() async {
+    await _firebaseAuth.signOut();
+}
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -42,6 +53,7 @@ class _HomePageState extends State<HomePage> {
       
       backgroundColor: const Color.fromRGBO(206, 192, 163, 1),
       bottomNavigationBar: Container( 
+      
       height: 54, 
       margin: const EdgeInsets.only(
         left: 20,
@@ -99,6 +111,7 @@ class _HomePageState extends State<HomePage> {
   ),                                                                         
    
      drawer: Drawer(
+       
        backgroundColor: Colors.black,
         shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -173,6 +186,34 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.pop(context);
               },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 500,
+              ),
+              child: ListTile(
+                shape: RoundedRectangleBorder(
+                    side: const BorderSide(color: Colors.white54, width: 0.5),
+                    borderRadius: BorderRadius.circular(20)),      
+                title: const Text('Log Out',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w200,
+                    color: Colors.white54
+                  ),),
+                // onLongPress: (){},
+                onTap: ()
+                  async {
+                    await _signOut();
+                    if (_firebaseAuth.currentUser == null) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MemberShip()),
+                      );
+                    }
+                  // Navigator.pop(context);
+                },
+              ),
             ),
           ],
         ),

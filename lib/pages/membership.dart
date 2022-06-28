@@ -25,6 +25,7 @@ class _MemberShipState extends State<MemberShip> {
      backgroundColor: const Color.fromRGBO(206, 192, 163, 1),   
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+         automaticallyImplyLeading: false,
         // title: const Text(MyApp.title,
         // style: TextStyle(color: Colors.black),),
         // centerTitle: true,

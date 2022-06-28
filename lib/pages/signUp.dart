@@ -26,7 +26,7 @@ class _RegisterState extends State<Register> {
   void initState() {
     super.initState();
     auth = FirebaseAuth.instance;
-    
+
   }
 
 
@@ -93,7 +93,7 @@ class _RegisterState extends State<Register> {
                        child: TextFormField(
                         keyboardType: TextInputType.text,
                         obscureText: true,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.next,
                        
                         decoration: const InputDecoration(                           
                           prefixIcon: Padding(
@@ -123,7 +123,6 @@ class _RegisterState extends State<Register> {
                        color: Colors.grey[500]?.withOpacity(0.5),
                        borderRadius: BorderRadius.circular(10),
                      ),
-                    
                        child: TextButton(
                         style: ButtonStyle(
                           alignment: Alignment.centerLeft,
@@ -134,28 +133,47 @@ class _RegisterState extends State<Register> {
                           await auth.createUserWithEmailAndPassword(email: email, password: password);
                            showDialog(
                                       context: context,
-                                      builder: (ctx) => const AlertDialog(
+                                      builder: (ctx) => AlertDialog(    
+                                          shape: RoundedRectangleBorder(
+		                                    borderRadius: BorderRadius.circular(15),),                                    
                                         title:
-                                            Text(' Sucessfully Register.You Can Login Now'),
-                          // ScaffoldMessenger.of(context).showSnackBar(
-                          //             const SnackBar(
-                          //                 content: Text('Sucessfully Register.You Can Login Now'),
-                          //                 // child: Text(
-                          //                 //     'Sucessfully Register.You Can Login Now'),
-                          //                  duration: Duration(seconds: 5),
-                          //               ),                                                                       
-                                    ),);
-                                    // Navigator.of(context).pop();
+                                            const Text('Sucessfully Register.You Can Login Now'),                                            
+                                        contentPadding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0),
+                                        backgroundColor: const Color.fromARGB(255, 245, 234, 190),    
+                                        titleTextStyle: const TextStyle(
+                                          fontStyle: FontStyle.normal,
+                                          color: Colors.brown,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),                                                               
+                                    ),
+                                    );
                         }
                         on FirebaseAuthException catch (e) {
                                     showDialog(
                                       context: context,
                                       builder: (ctx) => AlertDialog(
+                                         shape: RoundedRectangleBorder(
+		                                    borderRadius: BorderRadius.circular(15),),  
                                         title:
-                                            const Text(' Ops! Registration Failed'),
+                                            const Text('Ops! Registration Failed'),
+                                            contentPadding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0),
+                                        backgroundColor: const Color.fromARGB(255, 245, 234, 190),    
+                                        titleTextStyle: const TextStyle(
+                                          fontStyle: FontStyle.normal,
+                                          color: Colors.brown,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),            
                                         content: Text('${e.message}',
                                         ),
-                                        ),);
+                                        contentTextStyle: const TextStyle(
+                                          fontSize: 16,
+                                          fontStyle: FontStyle.normal,
+                                          color: Colors.brown,
+                                          fontWeight: FontWeight.normal,
+
+                                        ),),);
                         
 
                                       }
@@ -187,19 +205,20 @@ class TitlePage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Padding(
-      padding: const EdgeInsets.only(
-        top: 170,
-        left: 160
-      ),
-      child: Text(
-        signUpTitle,
-         style: const TextStyle(
-           color: Colors.black,
-           fontSize: 30,
-           fontWeight: FontWeight.normal,           
-         ),),
-    );
+     return
+      Padding(
+        padding: const EdgeInsets.only(bottom: 450),
+        child: Center(
+          child: Text(
+            signUpTitle,
+             style: const TextStyle(
+               color: Colors.black,
+               fontSize: 30,
+               fontWeight: FontWeight.normal,           
+             ),),
+        ),
+      );
+    
   }
 
     
