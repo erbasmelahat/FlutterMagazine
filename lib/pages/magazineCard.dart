@@ -3,7 +3,7 @@
 // import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:magazine/pages/detail.dart';
+// import 'package:magazine/pages/detail.dart';
 
 class MagazineCard extends StatelessWidget {
   const MagazineCard({
@@ -25,11 +25,11 @@ class MagazineCard extends StatelessWidget {
       ),
        child: TextButton(
          onPressed: () {
-  const Duration(seconds: 5);
-     Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Detail()),
-  );
+  // const Duration(seconds: 5);
+  //    Navigator.push(
+  //             context,
+  //             MaterialPageRoute(builder: (context) => const DetailZ()),
+  // );
          
          },
          child: Column(
@@ -43,7 +43,7 @@ class MagazineCard extends StatelessWidget {
               Container(
                padding: const EdgeInsets.all(8),
                decoration: BoxDecoration(
-                 color: const Color.fromARGB(255, 151, 117, 104),
+                 color: const Color.fromARGB(255, 116, 129, 117),
                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
                  boxShadow: [
                    BoxShadow(

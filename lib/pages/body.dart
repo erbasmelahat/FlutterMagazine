@@ -1,7 +1,9 @@
 // ignore_for_file: file_names, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+// import 'package:magazine/pages/cardGroup2.dart';
 
+// import 'cardGroup.dart';
 import 'cardGroup.dart';
 import 'groups.dart';
 import 'search.dart';

@@ -20,7 +20,9 @@ class _LoginPage1State extends State<LoginPage1> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     String email= "";
+    // ignore: unused_local_variable
     String password="";
     return Form(     
       child: Stack(

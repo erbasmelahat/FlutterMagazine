@@ -1,7 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:magazine/pages/science.dart';
+// import 'package:magazine/pages/science.dart';
 // import 'package:magazine/pages/literature.dart';
 // import 'package:magazine/pages/science.dart';
 

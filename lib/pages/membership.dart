@@ -26,17 +26,6 @@ class _MemberShipState extends State<MemberShip> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
          automaticallyImplyLeading: false,
-        // title: const Text(MyApp.title,
-        // style: TextStyle(color: Colors.black),),
-        // centerTitle: true,
-        //  leading: 
-        //  Builder(builder: (context) => 
-            // IconButton(
-              //  icon: const Icon(Icons.menu),
-              //  onPressed: () => Scaffold.of(context).openDrawer(),
-            //  ),
-            // ,
-        //  backgroundColor: Colors.transparent,
         
        ),
       body: pages[pageIndex],
